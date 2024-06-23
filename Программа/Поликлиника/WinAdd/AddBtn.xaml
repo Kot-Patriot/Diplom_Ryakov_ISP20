@@ -1,0 +1,58 @@
+﻿<Window x:Class="Приложушечка.AddBtn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Приложушечка"
+        mc:Ignorable="d"
+        Icon="original_proga_loga.png"
+        Title="Добавление пациента" Height="500" Width="500">
+    <Grid >
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    MinWidth="200">
+
+
+            <TextBlock Text="ФИО"/>
+            <TextBox x:Name="FIOTxb"/>
+
+            <TextBlock><Run Language="ru-ru" Text="Пол, где 1-м, 2-ж"/></TextBlock>
+            <TextBox x:Name="GenderTxb"/>
+
+            <TextBlock Text="Дата поступления"/>
+            <DatePicker Name="DataReciveCal"/>
+
+            <TextBlock Text="Краткая история болезни"/>
+            <TextBox x:Name="A_brief_historyTxb"/>
+
+            <TextBlock Text="Статус"/>
+            <ComboBox x:Name="StatusCmb"
+                      DisplayMemberPath="Status"
+                      Margin="0 10"/>
+
+            <TextBlock Text="Дата рождения"/>
+            <DatePicker Name="Date_of_birthCal"/>
+
+            <Button Content="Сохранить"
+                    Click="Save_Btn_Click" Background="LightGreen">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Назад"
+            Click="GoBa_Btn_Click" Margin="0 5 0 0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Center" Margin="0,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"><Run Language="ru-ru" Text="Добавление нового пациента"/></TextBlock>
+
+    </Grid>
+</Window>

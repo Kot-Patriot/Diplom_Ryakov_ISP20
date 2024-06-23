@@ -1,0 +1,70 @@
+﻿<Window x:Class="Приложушечка.AddReg"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Приложушечка"
+        mc:Ignorable="d"
+        Icon="original_proga_loga.png"
+        Title="Запись на приём" Height="500" Width="500">
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    MinWidth="200">
+
+            <TextBlock Text="ФИО клиента из базы"/>
+            <ComboBox x:Name="FIOCmb"
+                      Margin="0 3" 
+                      DisplayMemberPath="FIO"/>
+
+            <TextBlock Text="Статус"/>
+            <ComboBox x:Name="StatusCmb"
+                      Margin="0 3"
+                      SelectedItem="{Binding Information}" DisplayMemberPath="Status"/>
+
+            <TextBlock Text="Врач"/>
+            <ComboBox x:Name="DocCmb"
+                      Margin="0 3"
+                      SelectedItem="{Binding Doctors}" DisplayMemberPath="FIO"/>
+
+            <TextBlock Text="Специальность врача"/>
+            <ComboBox x:Name="SpecDocCmb"
+                      Margin="0 3"
+                      SelectedItem="{Binding Doctors}" DisplayMemberPath="Specification"/>
+
+            <TextBlock Text="Кабинет приёма"/>
+            <TextBox x:Name="KabTxb" 
+                     Margin="0 3"/>
+
+            <TextBlock Text="Причина обращения"/>
+            <TextBox x:Name="TypeOfTargetTxb" 
+                     Margin="0 3"/>
+
+            <TextBlock Text="Дата приёма"/>
+            <DatePicker Name="Date_of_regCal" 
+                        Margin="0 3"/>
+
+            <Button Content="Сохранить"
+                    Click="Save_Btn_Click" Background="LightGreen">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button Content="Назад"
+            Click="GoBa_Btn_Click" Margin="0 5 0 0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+        </StackPanel>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="22"><Run Language="ru-ru" Text="Добавление нового приёма"/></TextBlock>
+
+    </Grid>
+</Window>

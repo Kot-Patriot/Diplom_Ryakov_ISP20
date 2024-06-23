@@ -1,0 +1,131 @@
+﻿<Window x:Class="Приложушечка.Window5"
+        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Приложушечка"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Icon="original_proga_loga.png"
+        Title="Расписание" Height="720" Width="1280">
+    <Grid Background="#FFE6E2E2">
+        <Button x:Name="glavnaya" Content="Главная" HorizontalAlignment="Left" Margin="252,83,0,0" VerticalAlignment="Top" Width="153" Height="42" Click="glavnaya_Click" Background="LightGreen">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="sotrudniki" Content="Врачи" HorizontalAlignment="Left" Margin="442,83,0,0" VerticalAlignment="Top" Width="153" Height="42" Click="sotrudniki_Click" Background="LightGreen">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="prikazy" Content="Записи на приём" HorizontalAlignment="Left" Margin="631,83,0,0" VerticalAlignment="Top" Width="153" Height="42" Click="prikazy_Click" Background="LightGreen">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="otchety" Content="Отчёты" HorizontalAlignment="Left" Margin="1271,10,0,0" VerticalAlignment="Top" Width="3" Height="1" Click="otchety_Click" Background="White"/>
+        <Button x:Name="raspisanye" Content="Расписание" HorizontalAlignment="Left" Margin="816,83,0,0" VerticalAlignment="Top" Width="153" Height="42" Click="raspisanye_Click" Background="LightGreen">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="settings" Content="Настройки" HorizontalAlignment="Left" Margin="1005,83,0,0" VerticalAlignment="Top" Width="153" Height="42" Click="settings_Click" Background="LightGreen">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock HorizontalAlignment="Center" Margin="0,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48"><Run Language="ru-ru" Text="АИС ПОЛИКЛИНИКА"/></TextBlock>
+        <Button Content="" HorizontalAlignment="Center" Margin="0,134,0,0" VerticalAlignment="Top" Width="1280" Height="1" BorderBrush="Black" Background="Black" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" Margin="1167,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="99" FontSize="18"><Run Language="ru-ru" Text="Расписание"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="868,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="36" Text=""/>
+        <Image Margin="10,-15,1099,0" Source="лого-Photoroom.png-Photoroom.png" Stretch="Fill"/>
+
+        <DataGrid Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  x:Name="UsersGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="ФИО врача" Width="*" Binding="{Binding FIODoc}"/>
+                <DataGridTextColumn Header="Кабинет приёма" Width="*" Binding="{Binding Room}"/>
+                <DataGridTextColumn Header="Специальность врача" Width="*" Binding="{Binding SpecDoc}"/>
+                <DataGridTextColumn Header="Время начала приёма" Width="*" Binding="{Binding BEginOf}"/>
+                <DataGridTextColumn Header="Время конца приёма" Width="*" Binding="{Binding EndOF}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center">
+            <Button Height="24"
+                    Click="Add_Btn_Click"
+                    x:Name="AddBtn"
+                    Content="Добавить запись"
+                    Width="150"
+                    Background="LightGreen" 
+                    Margin="0,0,0,0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Height="24"
+                    Click="Edit_btn_click"
+                    x:Name="EditBtn"
+                    Margin="10 0"
+                    Content="Изменить запись"
+                    Width="150"
+                    Background="LightGreen">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Height="24"
+                    Click="RemoveBtn_Click"
+                    x:Name="RemoveBtn"
+                    Content="Удалить"
+                    Width="150"
+                    Background="LightGreen">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="135"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+
+
+
+    </Grid>
+</Window>

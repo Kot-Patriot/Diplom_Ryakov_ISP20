@@ -1,0 +1,157 @@
+﻿<Window x:Class="Приложушечка.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        WindowStartupLocation="CenterScreen" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Приложушечка"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        MinHeight="720"
+        MinWidth="1280"
+        Icon="original_proga_loga.png"
+        Title="Главная" Height="720" Width="1280">
+    <Grid Background="#FFE6E2E2">
+        <DataGrid Grid.Row="1"
+                  AutoGenerateColumns="False"
+                  x:Name="UsersGrid">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="ФИО" Width="*" Binding="{Binding FIO}"/>
+                <DataGridTextColumn Header="Пол" Width="*" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="Дата поступления" Width="*" Binding="{Binding DateRecive}"/>
+                <DataGridTextColumn Header="История болезней (краткая)" Width="*" Binding="{Binding History}"/>
+                <DataGridTextColumn Header="Статус" Width="*" Binding="{Binding Status}"/>
+                <DataGridTextColumn Header="День рождения" Width="*" Binding="{Binding Birthday}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center" Margin="405,0,0,0">
+
+            <Button Height="24"
+                    Click="Add_Btn_Click"
+                    x:Name="AddBtn"
+                    Content="Добавить запись в бд"
+                    Width="150"
+                    Background="LightGreen" 
+                    Margin="0,0,0,0">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Height="24"
+                    Click="Add_Btn_Click11"
+                    x:Name="EditBtn"
+                    Margin="10 0"
+                    Content="Изменить запись"
+                    Width="150"
+                    Background="LightGreen">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Height="24"
+                    Click="RemoveBtn_Click"
+                    x:Name="RemoveBtn"
+                    Content="Удалить"
+                    Width="150"
+                    Background="LightGreen">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+        </StackPanel>
+        <Button x:Name="glavnaya" Content="Главная -&#xD;&#xA;Мед карты" Margin="252,83,0,10" Background="LightGreen" HorizontalAlignment="Left" Width="153">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="sotrudnichki" Content="Врачи" Margin="442,83,0,10" Click="sotrudnichki_Click" Background="LightGreen" HorizontalAlignment="Left" Width="153">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="prikazy" Content="Записи на приём" Margin="631,83,0,10" Click="prikazy_Click" Background="LightGreen" HorizontalAlignment="Left" Width="153">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="otchety" Content="Отчёты" Margin="1280,0,0,134" Click="otchety_Click" Background="White" HorizontalAlignment="Left" Width="0">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="raspisanye" Content="Расписание" Margin="816,83,0,10" Click="raspisanye_Click" Background="LightGreen" HorizontalAlignment="Left" Width="154">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="settings" Content="Настройки" Margin="1005,83,0,10" Click="settings_Click" Background="LightGreen" HorizontalAlignment="Left" Width="154">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="" HorizontalAlignment="Center" Margin="0,134,0,0" VerticalAlignment="Top" Width="1280" Height="1" BorderBrush="Black" Background="Black" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock Margin="404,-1,382,72" TextWrapping="Wrap" FontSize="48"><Run Language="ru-ru" Text="АИС ПОЛИКЛИНИКА"/></TextBlock>
+        <TextBlock Margin="1167,10,23,96" TextWrapping="Wrap" FontSize="18"><Run Language="ru-ru" Text="Главная"/></TextBlock>
+        <Button Content="Выполнить отчёт" HorizontalAlignment="Left" Margin="886,0,0,0" Grid.Row="2" VerticalAlignment="Center" Click="Export_Click" Height="24" Width="150" Background="LightGreen">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Резервное копирование" x:Name="Rezerv" Margin="240,18,0,0" Grid.Row="2" Click="Rezerv_click" Background="LightGreen" HorizontalAlignment="Left" Width="150" Height="24" VerticalAlignment="Top">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Восстановление системы" x:Name="Vostav" HorizontalAlignment="Left" Margin="1046,0,0,0" Grid.Row="2" VerticalAlignment="Center" RenderTransformOrigin="-0.158,-0.351" Height="24" Width="150" Click="Vostav_click" Background="LightGreen">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Image Margin="10,0,0,0" Source="лого-Photoroom.png-Photoroom.png" Stretch="Fill" Height="165" VerticalAlignment="Center" HorizontalAlignment="Left" Width="171"/>
+        <TextBlock Grid.Row="2" Text="Поиск по ФИО" Margin="76,2,1078,45"/>
+        <TextBox x:Name="Searsh" KeyUp="Searsh_KeyUp" Margin="15,0,0,0" Grid.Row="2" Height="24" VerticalAlignment="Center" HorizontalAlignment="Left" Width="210"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="135"/>
+            <RowDefinition/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+    </Grid>
+</Window>
